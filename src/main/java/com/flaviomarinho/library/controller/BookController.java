@@ -24,6 +24,17 @@ public class BookController {
         return new ResponseEntity<>(bookDAO.findAll(), HttpStatus.OK);
     }
 
+    @GetMapping(value = "/title")
+    public ResponseEntity<?> searchForTitle(String title){
+        return new ResponseEntity<>(bookDAO.title(title), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/author")
+    public ResponseEntity<?> searchForAuthor(String author){
+        return new ResponseEntity<>(bookDAO.author(author), HttpStatus.OK);
+    }
+
+
     @PostMapping
     public ResponseEntity<?> save(@RequestBody Book book){
         return new ResponseEntity<>(bookDAO.save(book), HttpStatus.OK);

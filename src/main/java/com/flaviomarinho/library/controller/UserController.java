@@ -18,11 +18,16 @@ public class UserController {
     public UserController(UserRepository userDAO) {
         this.userDAO = userDAO;
     }
+
     @GetMapping
     public ResponseEntity<?> listAll(){
         return new ResponseEntity<>(userDAO.findAll(), HttpStatus.OK);
     }
 
+    @GetMapping(value = "/name")
+    public ResponseEntity<?> searchForName(String name){
+        return new ResponseEntity<>(userDAO.name(name), HttpStatus.OK);
+    }
     @PostMapping
     public ResponseEntity<?> save(@RequestBody User user){
         return new ResponseEntity<>(userDAO.save(user), HttpStatus.OK);
