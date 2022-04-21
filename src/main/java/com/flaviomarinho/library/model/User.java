@@ -45,7 +45,7 @@ public class User extends AbstractEntity{
         return address;
     }
 
-    public void setAddress(String endereco) {
+    public void setAddress(String address) {
         this.address = address;
     }
 }
