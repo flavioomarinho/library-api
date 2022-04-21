@@ -28,6 +28,26 @@ public class UserController {
         return new ResponseEntity<>(userDAO.save(user), HttpStatus.OK);
     }
 
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<?> update(@PathVariable("id") Long id, @RequestBody User user){
+    return userDAO.findById(id).map(record->{
+        record.setName(user.getName());
+        record.setAddress(user.getAddress());
+        record.setCpf(user.getCpf());
+        record.setPhone(user.getPhone());
+        User update = userDAO.save(record);
+        return ResponseEntity.ok().body(update);
+    }).orElse(ResponseEntity.notFound().build());
+    }
+
+    @DeleteMapping(path = {"/{id}"})
+    public ResponseEntity<?> delete (@PathVariable long id){
+        return userDAO.findById(id).map(record->{
+            userDAO.deleteById(id);
+            return ResponseEntity.ok().build();
+        }).orElse(ResponseEntity.notFound().build());
+    }
+
 
 
 
