@@ -23,8 +23,6 @@ public class UserController {
         return new ResponseEntity<>(userDAO.findAll(), HttpStatus.OK);
     }
 
-
-
     @PostMapping
     public ResponseEntity<?> save(@RequestBody User user){
         return new ResponseEntity<>(userDAO.save(user), HttpStatus.OK);
