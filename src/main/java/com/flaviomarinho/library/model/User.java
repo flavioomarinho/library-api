@@ -20,7 +20,7 @@ public class User extends AbstractEntity{
     @Column
     private String address;
     @Column
-    private Boolean availability = true;
+    private Boolean availability;
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<Loan> loan;
 

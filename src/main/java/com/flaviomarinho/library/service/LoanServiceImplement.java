@@ -60,4 +60,10 @@ public class LoanServiceImplement implements LoanService{
             }).collect(Collectors.toList());
         }
     }
+
+    public Boolean availabilityUser(UserRepository userRepository, Long idUser){
+        User user = userRepository.findById(idUser).orElseThrow(()-> new RuleBussinesException("Usuário não encontrado"));
+        Boolean availability = user.getAvailability();
+        return  availability;
+    }
 }
