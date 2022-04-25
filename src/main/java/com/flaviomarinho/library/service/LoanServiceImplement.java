@@ -2,6 +2,7 @@ package com.flaviomarinho.library.service;
 
 import com.flaviomarinho.library.dto.DetailLoanDTO;
 import com.flaviomarinho.library.dto.LoanDTO;
+import com.flaviomarinho.library.exception.RuleBussinesException;
 import com.flaviomarinho.library.model.Book;
 import com.flaviomarinho.library.model.DetailLoan;
 import com.flaviomarinho.library.model.Loan;
@@ -35,7 +36,7 @@ public class LoanServiceImplement implements LoanService{
     @Transactional
     public Loan saveLoan(LoanDTO dto) {
         Long idUser = dto.getUser();
-        User user = userRepository.findById(idUser).orElseThrow(()-> new RuntimeException("Código de usuário inválido"));
+        User user = userRepository.findById(idUser).orElseThrow(()-> new RuleBussinesException("Código de usuário inválido"));
         Loan loan = new Loan();
         loan.setUser(user);
         List<DetailLoan> detailLoans = convertDetails(loan, dto.getDetailLoanDTOS());
@@ -51,7 +52,7 @@ public class LoanServiceImplement implements LoanService{
         }else{
             return detailLoanDTOS.stream().map(dto -> {
                 Long idBook = dto.getBook();
-                Book book = bookRepository.findById(idBook).orElseThrow(()-> new RuntimeException("Código de Livro inválido: "+idBook));
+                Book book = bookRepository.findById(idBook).orElseThrow(()-> new RuleBussinesException("Código de Livro inválido: "+idBook));
                 DetailLoan detailLoan = new DetailLoan();
                 detailLoan.setLoan(loan);
                 detailLoan.setBook(book);
