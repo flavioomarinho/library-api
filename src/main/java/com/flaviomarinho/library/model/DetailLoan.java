@@ -2,23 +2,24 @@ package com.flaviomarinho.library.model;
 
 import lombok.Data;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import java.util.Date;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Data
 @Entity
 public class DetailLoan extends AbstractEntity{
-    @OneToOne
+
+    @ManyToOne
+    @JoinColumn(name="loan_id")
     private Loan loan;
-    @OneToOne
+
+    @ManyToOne
+    @JoinColumn(name="book_id")
     private Book book;
-    @Column
-    private Date dateLoan;
-    @Column
-    private Date dateDevolution;
+
+    public DetailLoan() {
+    }
 
     public Loan getLoan() {
         return loan;
@@ -34,21 +35,5 @@ public class DetailLoan extends AbstractEntity{
 
     public void setBook(Book book) {
         this.book = book;
-    }
-
-    public Date getDateDevolution() {
-        return dateDevolution;
-    }
-
-    public void setDateDevolution(Date dateDevolution) {
-        this.dateDevolution = dateDevolution;
-    }
-
-    public Date getDateLoan() {
-        return dateLoan;
-    }
-
-    public void setDateLoan(Date dateLoan) {
-        this.dateLoan = dateLoan;
     }
 }

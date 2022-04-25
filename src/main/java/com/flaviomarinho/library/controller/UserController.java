@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
 
 
 @RestController
@@ -28,6 +29,17 @@ public class UserController {
     public ResponseEntity<?> searchForName(String name){
         return new ResponseEntity<>(userDAO.name(name), HttpStatus.OK);
     }
+
+    @GetMapping(value = "/{id}")
+        public ResponseEntity<User> getUserById (@PathVariable long id){
+        Optional<User> user = userDAO.findById(id);
+        if(user.isPresent()){
+            return ResponseEntity.ok(user.get());
+        }else{
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @PostMapping
     public ResponseEntity<?> save(@RequestBody User user){
         return new ResponseEntity<>(userDAO.save(user), HttpStatus.OK);

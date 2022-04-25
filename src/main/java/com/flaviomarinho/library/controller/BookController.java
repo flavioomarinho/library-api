@@ -1,7 +1,6 @@
 package com.flaviomarinho.library.controller;
 
 import com.flaviomarinho.library.model.Book;
-import com.flaviomarinho.library.model.User;
 import com.flaviomarinho.library.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
