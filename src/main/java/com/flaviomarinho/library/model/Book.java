@@ -17,7 +17,7 @@ public class Book extends AbstractEntity{
     @Column
     private  String subject;
     @Column
-    private Boolean availability = true;
+    private Boolean availability;
 
     public Book(String title, String gender, String author, String subject, Boolean availability) {
         this.title = title;
@@ -25,6 +25,9 @@ public class Book extends AbstractEntity{
         this.author = author;
         this.subject = subject;
         this.availability = availability;
+    }
+
+    public Book() {
     }
 
     public String getTitle() {

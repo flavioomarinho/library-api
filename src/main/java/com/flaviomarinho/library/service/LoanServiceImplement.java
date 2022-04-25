@@ -66,4 +66,10 @@ public class LoanServiceImplement implements LoanService{
         Boolean availability = user.getAvailability();
         return  availability;
     }
+
+    public Boolean availabilityBook(BookRepository bookRepository, Long idBook){
+        Book book = bookRepository.findById(idBook).orElseThrow(()-> new RuleBussinesException("Usuário não encontrado"));
+        Boolean availability = book.getAvailability();
+        return  availability;
+    }
 }
