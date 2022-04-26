@@ -1,15 +1,13 @@
 package com.flaviomarinho.library.dto;
 
-import com.flaviomarinho.library.model.Book;
+import lombok.*;
 
+@Data
+@Builder
+@Getter@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class DetailLoanDTO {
     private Long book;
 
-    public Long getBook() {
-        return book;
-    }
-
-    public void setBook(Long book) {
-        this.book = book;
-    }
 }

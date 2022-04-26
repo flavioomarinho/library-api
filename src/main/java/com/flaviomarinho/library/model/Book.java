@@ -1,12 +1,16 @@
 package com.flaviomarinho.library.model;
 
-import lombok.Data;
+import lombok.*;
 
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+
 
 @Data
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class Book extends AbstractEntity{
     @Column
     private String title;
@@ -19,54 +23,4 @@ public class Book extends AbstractEntity{
     @Column
     private Boolean availability;
 
-    public Book(String title, String gender, String author, String subject, Boolean availability) {
-        this.title = title;
-        this.gender = gender;
-        this.author = author;
-        this.subject = subject;
-        this.availability = availability;
-    }
-
-    public Book() {
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public String getSubject() {
-        return subject;
-    }
-
-    public void setSubject(String subject) {
-        this.subject = subject;
-    }
-
-    public Boolean getAvailability() {
-        return availability;
-    }
-
-    public void setAvailability(Boolean availability) {
-        this.availability = availability;
-    }
 }

@@ -3,8 +3,11 @@ package com.flaviomarinho.library.controller;
 import com.flaviomarinho.library.dto.LoanDTO;
 import com.flaviomarinho.library.model.Loan;
 import com.flaviomarinho.library.service.LoanService;
-import org.springframework.http.HttpStatus;
+import lombok.NoArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import static org.springframework.http.HttpStatus.CREATED;
+
 
 @RestController
 @RequestMapping("loan")
@@ -17,11 +20,10 @@ public class LoanController {
     }
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(CREATED)
     public Long save (@RequestBody LoanDTO dto){
-        Loan loan = service.saveLoan(dto);
+        Loan loan = service.save(dto);
         return loan.getId();
     }
-
 
 }

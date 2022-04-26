@@ -11,13 +11,17 @@ import com.flaviomarinho.library.repository.BookRepository;
 import com.flaviomarinho.library.repository.DetailLoanRepository;
 import com.flaviomarinho.library.repository.LoanRepository;
 import com.flaviomarinho.library.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class LoanServiceImplement implements LoanService{
     private final LoanRepository loanRepository;
     private final UserRepository userRepository;
@@ -25,34 +29,28 @@ public class LoanServiceImplement implements LoanService{
     private final DetailLoanRepository detailLoanRepository;
 
 
-    public LoanServiceImplement(LoanRepository loanRepository, UserRepository userRepository, BookRepository bookRepository, DetailLoanRepository detailLoanRepository) {
-        this.loanRepository = loanRepository;
-        this.userRepository = userRepository;
-        this.bookRepository = bookRepository;
-        this.detailLoanRepository = detailLoanRepository;
-    }
-
     @Override
     @Transactional
-    public Loan saveLoan(LoanDTO dto) {
+    public Loan save(LoanDTO dto) {
         Long idUser = dto.getUser();
         User user = userRepository.findById(idUser).orElseThrow(()-> new RuleBussinesException("Código de usuário inválido"));
         Loan loan = new Loan();
+        loan.setDateLoan(LocalDate.now());
         loan.setUser(user);
-        List<DetailLoan> detailLoans = convertDetails(loan, dto.getDetailLoanDTOS());
+        List<DetailLoan> detailLoans = convertDetails(loan, dto.getItens());
         loanRepository.save(loan);
         detailLoanRepository.saveAll(detailLoans);
-        loan.setDetailLoans(detailLoans);
-        return loan;
-    }
+        loan.setItens(detailLoans);
+            return loan;
+       }
 
-    public List<DetailLoan> convertDetails (Loan loan, List<DetailLoanDTO> detailLoanDTOS){
-        if(detailLoanDTOS.isEmpty()){
+    public List<DetailLoan> convertDetails (Loan loan, List<DetailLoanDTO> itens){
+        if(itens.isEmpty()){
             throw new RuntimeException("Não é possível realizar um empréstimo sem livros")  ;
         }else{
-            return detailLoanDTOS.stream().map(dto -> {
+            return itens.stream().map(dto -> {
                 Long idBook = dto.getBook();
-                Book book = bookRepository.findById(idBook).orElseThrow(()-> new RuleBussinesException("Código de Livro inválido: "+idBook));
+                Book book = bookRepository.findById(idBook).orElseThrow(()-> new RuleBussinesException("Código de Livro inválido: "));
                 DetailLoan detailLoan = new DetailLoan();
                 detailLoan.setLoan(loan);
                 detailLoan.setBook(book);
@@ -61,15 +59,4 @@ public class LoanServiceImplement implements LoanService{
         }
     }
 
-    public Boolean availabilityUser(UserRepository userRepository, Long idUser){
-        User user = userRepository.findById(idUser).orElseThrow(()-> new RuleBussinesException("Usuário não encontrado"));
-        Boolean availability = user.getAvailability();
-        return  availability;
-    }
-
-    public Boolean availabilityBook(BookRepository bookRepository, Long idBook){
-        Book book = bookRepository.findById(idBook).orElseThrow(()-> new RuleBussinesException("Usuário não encontrado"));
-        Boolean availability = book.getAvailability();
-        return  availability;
-    }
 }

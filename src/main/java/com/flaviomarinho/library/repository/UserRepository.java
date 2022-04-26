@@ -12,8 +12,6 @@ public interface UserRepository extends CrudRepository <User, Long> {
     List<User> findByName (String name);
     List<User> name (String name);
 
-    @Query(" select u from User u left join fetch u.loan where u.id= :id")
-    User findUserFetchLoan(@Param("id") Long id);
 
 
 }

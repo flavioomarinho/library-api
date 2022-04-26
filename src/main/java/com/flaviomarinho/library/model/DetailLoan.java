@@ -1,6 +1,6 @@
 package com.flaviomarinho.library.model;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -8,6 +8,9 @@ import javax.persistence.ManyToOne;
 
 @Data
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+
 public class DetailLoan extends AbstractEntity{
 
     @ManyToOne
@@ -17,23 +20,4 @@ public class DetailLoan extends AbstractEntity{
     @ManyToOne
     @JoinColumn(name="book_id")
     private Book book;
-
-    public DetailLoan() {
-    }
-
-    public Loan getLoan() {
-        return loan;
-    }
-
-    public void setLoan(Loan loan) {
-        this.loan = loan;
-    }
-
-    public Book getBook() {
-        return book;
-    }
-
-    public void setBook(Book book) {
-        this.book = book;
-    }
 }
