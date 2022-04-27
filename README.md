@@ -143,7 +143,7 @@ spring.datasource.username=root
 spring.datasource.password=root
 ```
 
-- `Após a configuração da conexão com o banco de dados, você deve clicar com o botão direito encima do projeto, ir na guia Maven e clicar em Reload project. Essa ação vai fazer com que o Maven baixe todas as dependências necessárias para execução do projeto`
+- `Após a configuração da conexão com o banco de dados, você deve clicar com o botão direito encima do projeto, ir na guia Maven e clicar em Reload project. Essa ação vai fazer com que o Maven baixe todas as dependências necessárias para a execução do projeto apontadas no arquivo pom.xml.`
 - `Feito isso é só executar o projeto!`
 
 ## Tecnologias utilizadas
