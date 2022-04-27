@@ -51,11 +51,11 @@ Corpo da requisição
     "availability":0
 }
 
-Método GET (Consulta todos os livros)
+Método GET (Consulta todos os Usuários)
 localhost:8080/users
 
 Método DELETE (Deleta registro)
-localhost:8080/books/1
+localhost:8080/users/1
 ```
 
 - `Funcionalidade 2` `Cadastro de Livros`: O sistema permite cadastrar os livros que farão parte do acervo da biblioteca. Para cadastrar um livro, devem ser informados seu título, seu autor, seu gênero e o assunto que se trata o livro. Todos os campos são obrigatórios. Além de cadastrar, o sistema permite a realização da alteração, exclusão e consulta dos livros cadastrados.
