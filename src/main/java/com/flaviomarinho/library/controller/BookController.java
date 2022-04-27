@@ -18,27 +18,31 @@ public class BookController {
         this.bookDAO = bookDAO;
     }
 
+    //Busca todos os livros cadastrados
     @GetMapping
     public ResponseEntity<?> listAll(){
         return new ResponseEntity<>(bookDAO.findAll(), HttpStatus.OK);
     }
 
+    //Busca livro pelo titulo
     @GetMapping(value = "/title")
     public ResponseEntity<?> searchForTitle(String title){
         return new ResponseEntity<>(bookDAO.title(title), HttpStatus.OK);
     }
 
+    //Busca livro por autor
     @GetMapping(value = "/author")
     public ResponseEntity<?> searchForAuthor(String author){
         return new ResponseEntity<>(bookDAO.author(author), HttpStatus.OK);
     }
 
-
+    //Salva livro
     @PostMapping
     public ResponseEntity<?> save(@RequestBody Book book){
         return new ResponseEntity<>(bookDAO.save(book), HttpStatus.OK);
     }
 
+    //Atualiza registro livro
     @PutMapping(value = "/{id}")
     public ResponseEntity<?> update(@PathVariable("id") Long id, @RequestBody Book book){
         return bookDAO.findById(id).map(record->{
@@ -51,6 +55,7 @@ public class BookController {
         }).orElse(ResponseEntity.notFound().build());
     }
 
+    //Deleta registro livro
     @DeleteMapping(path = {"/{id}"})
     public ResponseEntity<?> delete (@PathVariable long id){
         return bookDAO.findById(id).map(record->{

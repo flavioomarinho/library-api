@@ -3,7 +3,6 @@ package com.flaviomarinho.library.controller;
 import com.flaviomarinho.library.dto.LoanDTO;
 import com.flaviomarinho.library.model.Loan;
 import com.flaviomarinho.library.service.LoanService;
-import lombok.NoArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import static org.springframework.http.HttpStatus.CREATED;

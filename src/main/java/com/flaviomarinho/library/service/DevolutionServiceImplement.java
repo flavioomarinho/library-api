@@ -4,7 +4,6 @@ import com.flaviomarinho.library.dto.DevolutionDTO;
 import com.flaviomarinho.library.exception.RuleBussinesException;
 import com.flaviomarinho.library.model.Book;
 import com.flaviomarinho.library.model.Devolution;
-import com.flaviomarinho.library.model.Loan;
 import com.flaviomarinho.library.model.User;
 import com.flaviomarinho.library.repository.BookRepository;
 import com.flaviomarinho.library.repository.DevolutionRepository;
@@ -22,7 +21,7 @@ public class DevolutionServiceImplement implements DevolutionService{
     private final BookRepository bookRepository;
     private final DevolutionRepository devolutionRepository;
 
-
+    //Realiza devolução
     @Override
     public Devolution update(DevolutionDTO dto) {
         Long idUser = dto.getUser();
@@ -41,6 +40,7 @@ public class DevolutionServiceImplement implements DevolutionService{
         return devolution;
     }
 
+    //Altera disponibilidade do usuário conforme número de livros devolvidos
     public User updateAvailabilityUser(User user){
         if(user.getAvailability() == 2){
             user.setAvailability(1);

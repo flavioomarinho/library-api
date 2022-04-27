@@ -2,8 +2,6 @@ package com.flaviomarinho.library.controller;
 
 import com.flaviomarinho.library.model.User;
 import com.flaviomarinho.library.repository.UserRepository;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

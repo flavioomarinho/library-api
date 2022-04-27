@@ -7,6 +7,7 @@ import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
 import java.util.Objects;
 
+//Cria em todas as entidades que a extende um ID
 @MappedSuperclass
 public class AbstractEntity implements Serializable {
     @Id
