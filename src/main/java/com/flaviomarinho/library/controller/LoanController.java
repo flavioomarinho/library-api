@@ -15,6 +15,7 @@ public class LoanController {
 
     private LoanService service;
 
+
     public LoanController(LoanService service) {
         this.service = service;
     }
@@ -23,7 +24,13 @@ public class LoanController {
     @ResponseStatus(CREATED)
     public Long save (@RequestBody LoanDTO dto){
         Loan loan = service.save(dto);
-        return loan.getId();
+        if(loan.getUser() != null){
+            return loan.getId();
+        }else{
+            return Long.valueOf(0);
+        }
     }
+
+
 
 }

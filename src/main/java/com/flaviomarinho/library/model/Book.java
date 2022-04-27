@@ -21,6 +21,6 @@ public class Book extends AbstractEntity{
     @Column
     private  String subject;
     @Column
-    private Boolean availability;
+    private Integer availability;
 
 }

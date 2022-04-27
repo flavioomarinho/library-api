@@ -28,7 +28,7 @@ public class UserController {
 
     @GetMapping(value = "/name")
     public ResponseEntity<?> searchForName(String name){
-        return new ResponseEntity<>(userDAO.name(name), HttpStatus.OK);
+        return new ResponseEntity<>(userDAO.findByName(name), HttpStatus.OK);
     }
 
     @GetMapping(value = "/{id}")
