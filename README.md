@@ -158,7 +158,7 @@ spring.datasource.password=root
 
 ## Pessoa Desenvolvedora
 
-[<img src="https://avatars.githubusercontent.com/u/18190240?v=4" width=115><br><sub>Flávio da Rosa Marinho</sub>](https://github.com/flavioomarinho)] 
+<img src="https://avatars.githubusercontent.com/u/18190240?v=4" width=115><br><sub>Flávio da Rosa Marinho</sub>](https://github.com/flavioomarinho) 
 
 
 
