@@ -5,7 +5,7 @@
 * [Índice](#índice)
 * [Descrição do Projeto](#descrição-do-projeto)
 * [Status do Projeto](#status-do-projeto)
-* [Modelagem de Dados](#Modelagem de Dados)
+* [Modelagem de Dados](#Modelagem-de-Dados)
 * [Funcionalidades](#funcionalidades)
 * [Abrir e Rodar o Projeto](#abrir-e-rodar-o-projeto)
 * [Tecnologias utilizadas](#tecnologias-utilizadas)
