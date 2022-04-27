@@ -32,6 +32,7 @@ public class UserController {
     }
 
     @GetMapping(value = "/{id}")
+    @ResponseBody
         public ResponseEntity<User> getUserById (@PathVariable long id){
         Optional<User> user = userDAO.findById(id);
         if(user.isPresent()){
@@ -59,7 +60,8 @@ public class UserController {
     }
 
     @DeleteMapping(path = {"/{id}"})
-    public ResponseEntity<?> delete (@PathVariable long id){
+    @ResponseBody
+    public ResponseEntity delete (@PathVariable long id){
         return userDAO.findById(id).map(record->{
             userDAO.deleteById(id);
             return ResponseEntity.ok().build();

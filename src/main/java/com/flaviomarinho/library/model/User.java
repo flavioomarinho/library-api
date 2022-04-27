@@ -1,5 +1,6 @@
 package com.flaviomarinho.library.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.Column;
@@ -24,6 +25,7 @@ public class User extends AbstractEntity{
     private String address;
     @Column
     private Integer availability;
+    @JsonIgnore
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<Loan> loan;
 
