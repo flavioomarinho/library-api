@@ -14,9 +14,9 @@ public class LoanController {
 
     private LoanService service;
 
-
     public LoanController(LoanService service) {
         this.service = service;
+
     }
 
     @PostMapping
@@ -29,7 +29,6 @@ public class LoanController {
             return Long.valueOf(0);
         }
     }
-
 
 
 }

@@ -18,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -50,6 +51,7 @@ public class LoanServiceImplement implements LoanService{
         }
                }
 
+        //Altera disponibilidade do cliente conforme número de empréstimos realizados
        public User updateAvaiabilityUser(@NotNull List<DetailLoan> itens, User user){
             if(itens.isEmpty()){
                 new RuleBussinesException("Lista vazia");
@@ -64,7 +66,7 @@ public class LoanServiceImplement implements LoanService{
                 }
             return user;
     }
-
+    //monta item do emprestimo
     public List<DetailLoan> convertDetails (Loan loan, List<DetailLoanDTO> itens){
         if(itens.isEmpty()){
             throw new RuntimeException("Não é possível realizar um empréstimo sem livros")  ;
@@ -82,7 +84,7 @@ public class LoanServiceImplement implements LoanService{
     }
 
 
-    }
+}
 
 
 
