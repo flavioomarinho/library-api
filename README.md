@@ -132,14 +132,18 @@ localhost:8080/books/title?title=Pocoyo e a Floresta
 ## Abrir e rodar o projeto
 
 - `Após baixar o projeto, você pode abri-lo com o InteliJ IDEA.`
-
-- `Antes de executar o projeto você deve configurar o seu banco de dados MYSQL através do MYSQL Workbench utilizando as informações contidas no arquivo properties do projeto.`
-
+- `Em paralelo você deve configurar uma instância do banco de dados MYSQL utilizando a ferramenta MYSQL Workbench.`
 - `Uma vez configurado o banco de dados, você deve rodar o seguinte script:
 CREATE DATABASE library`
+- `Na pasta resources do projeto você encontrará o arquivo application.properties ao qual você deve alterá-lo conforme a sua instância do banco de dados, essas informações você pode conferir no MYSQL Workbench`.
 
-- `Criado o banco de dados você deve executar o Maven para baixar todas as bibliotecas e depenências que o projeto necessita.`
+```
+spring.datasource.url=jdbc:mysql://localhost:3306/library
+spring.datasource.username=root
+spring.datasource.password=root
+```
 
+- `Após a configuração da conexão com o banco de dados, você deve clicar com o botão direito encima do projeto, ir na guia Maven e clicar em Reload project. Essa ação vai fazer com que o Maven baixe todas as dependências necessárias para execução do projeto`
 - `Feito isso é só executar o projeto!`
 
 ## Tecnologias utilizadas
