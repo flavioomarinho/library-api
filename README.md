@@ -5,6 +5,7 @@
 * [Índice](#índice)
 * [Descrição do Projeto](#descrição-do-projeto)
 * [Status do Projeto](#status-do-projeto)
+* [Modelagem de Dados](#Modelagem de Dados)
 * [Funcionalidades](#funcionalidades)
 * [Abrir e Rodar o Projeto](#abrir-e-rodar-o-projeto)
 * [Tecnologias utilizadas](#tecnologias-utilizadas)
@@ -17,6 +18,11 @@
 ## Status do Projeto
 
 - `Projeto Concluído`
+
+## Modelagem de Dados
+
+![bd](https://user-images.githubusercontent.com/18190240/165580906-970f6f7a-bafb-46b1-baf1-7faa03223b56.jpeg)
+
 
 ## Funcionalidades
 - `Funcionalidade 1` `Cadastro de Usuários`: O sistema permite cadastrar os usuários que irão utilizar o serviço de empréstimo de livros da biblioteca. Para cadastrar um usuário, devem ser informados seu nome, seu telefone, seu cpf e seu endereço. Todos os campos são obrigatórios. Além de cadastrar, o sistema permite a realização da alteração, exclusão e consulta dos usuários cadastrados.
