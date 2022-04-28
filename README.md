@@ -136,7 +136,9 @@ localhost:8080/books/title?title=Pocoyo e a Floresta
 ```
 ## Abrir e rodar o projeto
 
+- `Faça o dowload do código fonte do projeto no repositório do github e depois descompacte.`
 - `Após baixar o projeto, você pode abri-lo com o InteliJ IDEA.`
+- `Na guia Run/Debug Configurations da IDE adicione uma nova configuração Maven, você deve dar um nome a ela e verificar se a referência do Java está correta.`
 - `Em paralelo você deve configurar uma instância do banco de dados MYSQL utilizando a ferramenta MYSQL Workbench.`
 - `Uma vez configurado o banco de dados, você deve rodar o seguinte script:
 CREATE DATABASE library`
@@ -148,8 +150,9 @@ spring.datasource.username=root
 spring.datasource.password=root
 ```
 
-- `Após a configuração da conexão com o banco de dados, você deve clicar com o botão direito encima do projeto, ir na guia Maven e clicar em Reload project. Essa ação vai fazer com que o Maven baixe todas as dependências necessárias para a execução do projeto apontadas no arquivo pom.xml.`
-- `Feito isso é só executar o projeto!`
+- `Após a configuração da conexão com o banco de dados, você deve clicar com o botão direito encima do projeto, ir na guia Maven e clicar em Reload project. Essa ação vai fazer com que o Maven baixe todas as dependências necessárias para a execução do projeto apontadas no arquivo pom.xml, você deve acompanhar esse processo e confirmando as instalações necessárias.`
+- `Uma vez que terminaram os downloads e instalações reinicie a IDE.`
+- `Feito isso é só escolher na guia Run/Debug Configurations a LibraryApiAplication e executar o projeto!`
 
 ## Tecnologias utilizadas
 - `Java 11`
