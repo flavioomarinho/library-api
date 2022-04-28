@@ -121,7 +121,7 @@ Corpo da requisição
 - `Funcionalidade 5` `Consultas`: O sistema permite realizar a consulta das informação de um usuário pelo seu nome.
 
 ```
-Método GET (Consulta livro por autor)
+Método GET (Consulta usuário pelo nome)
 localhost:8080/users/name?name=Elisa
 ```
 
@@ -141,31 +141,4 @@ localhost:8080/books/title?title=Pocoyo e a Floresta
 - `Em paralelo você deve configurar uma instância do banco de dados MYSQL utilizando a ferramenta MYSQL Workbench.`
 - `Uma vez configurado o banco de dados, você deve rodar o seguinte script:
 CREATE DATABASE library`
-- `Na pasta resources do projeto você encontrará o arquivo application.properties ao qual você deve alterá-lo conforme a sua instância do banco de dados, essas informações você pode conferir no MYSQL Workbench`.
-
-```
-spring.datasource.url=jdbc:mysql://localhost:3306/library
-spring.datasource.username=root
-spring.datasource.password=root
-```
-
-- `Após a configuração da conexão com o banco de dados, você deve clicar com o botão direito encima do projeto, ir na guia Maven e clicar em Reload project. Essa ação vai fazer com que o Maven baixe todas as dependências necessárias para a execução do projeto apontadas no arquivo pom.xml.`
-- `Feito isso é só executar o projeto!`
-
-## Tecnologias utilizadas
-- `Java 11`
-- `Maven`
-- `Hibernate JPA`
-- `Spring Boot`
-- `Lombok`
-- `MySQL`
-- `InteliJ IDEA`
-- `JSON`
-
-## Pessoa Desenvolvedora
-
-[<img src="https://avatars.githubusercontent.com/u/18190240?v=4" width=115><br><sub>Flávio da Rosa Marinho</sub>](https://github.com/flavioomarinho) 
-
-
-
-
+- `Na pasta resources do projeto você encontrará o arquivo application.propert
